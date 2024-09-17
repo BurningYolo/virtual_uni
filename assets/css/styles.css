@@ -1,0 +1,54 @@
+        /* Sidebar styling */
+        .sidebar {
+            transition: transform 0.3s ease, width 0.3s ease;
+            width: 250px; /* Expanded width */
+            min-height: 100vh;
+            background-color: #343a40;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .sidebar.hidden {
+            transform: translateX(-100%); /* Moves sidebar completely off screen */
+        }
+
+        /* Main content margin adjustment */
+        .main-content {
+            margin-left: 250px; /* Match sidebar width */
+            transition: margin-left 0.3s ease;
+            padding: 20px;
+        }
+        
+        .main-content.hidden {
+            margin-left: 30px; /* Adjust according to sidebar collapsed width */
+        }
+        /* Toggler button */
+        .sidebar-toggler {
+     
+            top: 15px;
+            left: 15px;
+            z-index: 1001;
+        }
+
+        /* Header styling */
+
+ 
+        /* Icon size adjustment */
+        .sidebar .bi {
+            font-size: 1.5rem;
+        }
+
+        .header .bi {
+            font-size: 1.25rem;
+        }
+        .navbar-bg {
+            background-color: #343a40;
+            color: white;
+            padding: 0.5rem 1rem;
+        }
+
+        .sidebar-toggler {
+            margin-left: auto; /* Ensures button is on the right */
+        }

@@ -17,17 +17,19 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
+print_r($config)  ; 
+
 // Check if auth_key is provided in the request (GET or POST)
 $userAuthKey = isset($_REQUEST['auth_key']) ? $_REQUEST['auth_key'] : null;
 
 if (!$userAuthKey) {
     // If no auth_key is provided
-    exit('Auth key is not provided.');
+    //exit('Auth key is not provided.');
 }
 
 if ($userAuthKey !== $authKey) {
     // If auth_key does not match
-    exit('Invalid auth key.');
+   // exit('Invalid auth key.');
 }
 
 try {

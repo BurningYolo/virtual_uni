@@ -9,7 +9,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['emai
     $email = $_POST['email'];
     $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : null;
     $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : null;
-    $role = isset($_POST['role']) ? $_POST['role'] : null;
+    $role = isset($_POST['role']) ? $_POST['role'] : "student";
     $profile_picture = isset($_POST['profile_picture']) ? $_POST['profile_picture'] : null;
     $bio = isset($_POST['bio']) ? $_POST['bio'] : null;
 
