@@ -1,0 +1,57 @@
+[10-Sep-2024 06:22:59 Asia/Kolkata] PHP Warning:  require_once(../config/connection.php): Failed to open stream: No such file or directory in /home4/nipsdrea/public_html/virtual_uni/api/users/index.php on line 2
+[10-Sep-2024 06:22:59 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '../config/connection.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home4/nipsdrea/public_html/virtual_uni/api/users/index.php:2
+Stack trace:
+#0 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/api/users/index.php on line 2
+[10-Sep-2024 06:26:22 Asia/Kolkata] PHP Warning:  require(../config/db_config.php): Failed to open stream: No such file or directory in /home4/nipsdrea/public_html/virtual_uni/config/connection.php on line 3
+[10-Sep-2024 06:26:22 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '../config/db_config.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home4/nipsdrea/public_html/virtual_uni/config/connection.php:3
+Stack trace:
+#0 /home4/nipsdrea/public_html/virtual_uni/api/users/index.php(2): require_once()
+#1 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/config/connection.php on line 3
+[10-Sep-2024 06:28:29 Asia/Kolkata] PHP Warning:  require(../config/db_config.php): Failed to open stream: No such file or directory in /home4/nipsdrea/public_html/virtual_uni/config/connection.php on line 3
+[10-Sep-2024 06:28:29 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Failed opening required '../config/db_config.php' (include_path='.:/opt/alt/php81/usr/share/pear:/opt/alt/php81/usr/share/php:/usr/share/pear:/usr/share/php') in /home4/nipsdrea/public_html/virtual_uni/config/connection.php:3
+Stack trace:
+#0 /home4/nipsdrea/public_html/virtual_uni/api/users/index.php(2): require_once()
+#1 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/config/connection.php on line 3
+[10-Sep-2024 06:30:09 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000] [1044] Access denied for user 'nipsdrea_nips'@'localhost' to database 'nipsdrea_virtual_uni' in /home4/nipsdrea/public_html/virtual_uni/config/connection.php:24
+Stack trace:
+#0 /home4/nipsdrea/public_html/virtual_uni/api/users/index.php(2): require_once()
+#1 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/config/connection.php on line 24
+[11-Sep-2024 08:08:44 Asia/Kolkata] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'profile_picture' in 'field list' in /home4/nipsdrea/public_html/virtual_uni/api/users/create.php:34
+Stack trace:
+#0 /home4/nipsdrea/public_html/virtual_uni/api/users/create.php(34): PDO->prepare()
+#1 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/api/users/create.php on line 34
+[14-Sep-2024 21:05:38 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php:21
+Stack trace:
+#0 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php on line 21
+[14-Sep-2024 21:06:33 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php:22
+Stack trace:
+#0 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php on line 22
+[14-Sep-2024 21:06:36 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php:22
+Stack trace:
+#0 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php on line 22
+[14-Sep-2024 21:06:39 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php:22
+Stack trace:
+#0 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php on line 22
+[14-Sep-2024 21:06:43 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php:22
+Stack trace:
+#0 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php on line 22
+[14-Sep-2024 21:06:53 Asia/Kolkata] PHP Fatal error:  Uncaught TypeError: Unsupported operand types: string + string in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php:22
+Stack trace:
+#0 {main}
+  thrown in /home4/nipsdrea/public_html/virtual_uni/api/users/login.php on line 22
+[14-Sep-2024 21:17:04 Asia/Kolkata] PHP Warning:  Array to string conversion in /home4/nipsdrea/public_html/virtual_uni/api/users/test.php on line 25
+[14-Sep-2024 21:17:43 Asia/Kolkata] PHP Warning:  Array to string conversion in /home4/nipsdrea/public_html/virtual_uni/api/users/test.php on line 22
+[14-Sep-2024 21:25:39 Asia/Kolkata] PHP Warning:  Array to string conversion in /home4/nipsdrea/public_html/virtual_uni/api/users/test.php on line 60
+[14-Sep-2024 21:26:51 Asia/Kolkata] PHP Warning:  Array to string conversion in /home4/nipsdrea/public_html/virtual_uni/api/users/test.php on line 60
+[14-Sep-2024 21:26:55 Asia/Kolkata] PHP Warning:  Array to string conversion in /home4/nipsdrea/public_html/virtual_uni/api/users/test.php on line 60
+[14-Sep-2024 21:27:05 Asia/Kolkata] PHP Parse error:  syntax error, unexpected token ";" in /home4/nipsdrea/public_html/virtual_uni/api/users/test.php on line 60
