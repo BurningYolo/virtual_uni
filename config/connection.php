@@ -1,6 +1,8 @@
 <?php
 // Include database configuration
 $config = require 'db_config.php'; // Adjust the path as necessary
+include('db_config.php'); 
+
 
 // Extract configuration variables
 $host = $config['host'];
@@ -17,7 +19,7 @@ $options = [
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
 
-print_r($config)  ; 
+
 
 // Check if auth_key is provided in the request (GET or POST)
 $userAuthKey = isset($_REQUEST['auth_key']) ? $_REQUEST['auth_key'] : null;
@@ -35,6 +37,7 @@ if ($userAuthKey !== $authKey) {
 try {
     // Create a new PDO instance
     $pdo = new PDO($dsn, $user, $pass, $options);
+    
     // Continue with your script logic here...
 } catch (\PDOException $e) {
     // Handle connection error

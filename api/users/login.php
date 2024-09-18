@@ -1,6 +1,6 @@
 <?php 
 require_once '../../config/connection.php'; 
-
+header('Content-Type: application/json');
 // Initialize variables to hold the response message and debug information
 $responseMessage = '';
 $debugInfo = [];

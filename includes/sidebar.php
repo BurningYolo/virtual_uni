@@ -21,22 +21,22 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="?page=events" class="nav-link text-white">
                       Events  
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="?page=posts" class="nav-link text-white">
                         Posts
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="?page=profile" class="nav-link text-white">
                         Profile
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="?page=feedback" class="nav-link text-white">
                         Feedback
                     </a>
                 </li>
