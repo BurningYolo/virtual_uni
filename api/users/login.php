@@ -1,9 +1,11 @@
 <?php 
 require_once '../../config/connection.php'; 
 header('Content-Type: application/json');
-// Initialize variables to hold the response message and debug information
+
+// Initialize variables to hold the response message, debug information, and user details
 $responseMessage = '';
 $debugInfo = [];
+$userDetails = [];  // Array to store user_id, email, and role
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email = $_POST['email'];
@@ -31,6 +33,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         // Check if password matches
         if (password_verify($password, $user['password_hash'])) {
             $responseMessage = "Login successful.";
+
+            // Store user details to return in the response
+            $userDetails = [
+                "user_id" => $user['user_id'],
+                "email" => $user['email'],
+                "role" => $user['role'] , 
+                "username" =>$user['username'] 
+            ];
         } else {
             $responseMessage = "Incorrect password.";
         }
@@ -44,7 +54,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 // Echo the response for JSON format
 echo json_encode([
     "message" => $responseMessage,
-    "debug" => $debugInfo
+    "debug" => $debugInfo,
+    "user_details" => $userDetails  // Add user details to the response
 ]);
-
 ?>

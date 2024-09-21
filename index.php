@@ -5,8 +5,9 @@ session_start();
 include_once('config/db_config.php');
 include('config/directroy.php'); 
 
+
 // Check if the user is logged in
-if (isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['user_id'])) {
+if (isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['user_id'] ) ) {
     include(BASE_DIR . 'includes/header.php');
     include(BASE_DIR . 'includes/sidebar.php');
 
@@ -46,7 +47,12 @@ if (isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['us
 } else {
     $view = 'login-signup' ; 
     
-
+    $handler_file = BASE_DIR . "handlers/{$view}_handler.php";
+    if (file_exists($handler_file)) {
+        include($handler_file);
+    } else {
+        echo "<p>Handler for {$view} not found.</p>";
+    }
     // User is not logged in, load the login/signup view
     $view_file = BASE_DIR . 'views/login-signup.php';
 

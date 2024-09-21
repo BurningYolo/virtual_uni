@@ -1,4 +1,5 @@
 <?php
+
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'POST') {
@@ -14,7 +15,7 @@ if ($method === 'POST') {
         echo json_encode(['success' => false, 'message' => 'Invalid action']);
     }
 } else {
-    echo json_encode(['success' => false, 'message' => 'Invalid request method']);
+    //echo json_encode(['success' => false, 'message' => 'Invalid request method']);
 }
 
 function handleSignup() {
@@ -25,7 +26,7 @@ function handleSignup() {
 
     // Process the response from the signup API
     if ($response['message'] === 'User created successfully.') {
-        echo json_encode(['success' => true, 'message' => $response['message'], 'redirect_url' => 'dashboard.php']);
+        echo json_encode(['success' => true, 'message' => 'Account created successfully.', 'action' => 'signup']);
     } else {
         echo json_encode(['success' => false, 'message' => $response['message']]);
     }
@@ -39,9 +40,37 @@ function handleLogin() {
 
     // Process the response from the login API
     if ($response['message'] === 'Login successful.') {
-        echo json_encode(['success' => true, 'message' => $response['message'], 'redirect_url' => 'dashboard.php']);
+        // Check if user details are present in the response
+        if (isset($response['user_details'])) {
+            // Set session variables
+            session_start();
+            $_SESSION['email'] = $response['user_details']['email'];
+            $_SESSION['role'] = $response['user_details']['role'];
+            $_SESSION['user_id'] = $response['user_details']['user_id'];
+            $_SESSION['username'] = $response['user_details']['username'];
+
+            
+            
+
+            // Send a successful response with additional login action
+            echo json_encode([
+                'success' => true, 
+                'message' => 'Login successful.', 
+                'action' => 'login'
+            ]);
+        } else {
+            // If user details are missing, handle it as an error
+            echo json_encode([
+                'success' => false, 
+                'message' => 'Something went wrong.'
+            ]);
+        }
     } else {
-        echo json_encode(['success' => false, 'message' => $response['message']]);
+        // Send an error response if login fails
+        echo json_encode([
+            'success' => false, 
+            'message' => $response['message']
+        ]);
     }
 }
 

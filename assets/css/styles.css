@@ -32,6 +32,8 @@
             z-index: 1001;
         }
 
+        
+
         /* Header styling */
 
  
@@ -52,3 +54,83 @@
         .sidebar-toggler {
             margin-left: auto; /* Ensures button is on the right */
         }
+
+        /* General styling for all dashboard cards */
+        .view_dashboard .card {
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .view_dashboard .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Styling for collapsible sections */
+        .view_dashboard .collapse {
+            transition: max-height 0.3s ease;
+        }
+
+        /* Differentiate profile card from others */
+        .view_dashboard .profile-card {
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .view_dashboard .profile-card .card-body {
+            text-align: center;
+        }
+
+        /* Card headers */
+        .view_dashboard .card-header {
+            font-size: 1.25rem;
+            background-color: #444;
+            color: #fff;
+        }
+
+        /* General info cards */
+        .view_dashboard .info-card {
+            background-color: #f8f9fa;
+        }
+
+        /* Styling for card images */
+        .view_dashboard .card img {
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .view_dashboard .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Aligns content evenly */
+        height: 100%; /* Makes sure all cards take full height */
+         }
+
+        .view_dashboard  .card-img-top {
+        max-height: 150px; /* Sets a maximum height for images */
+        object-fit: cover; /* Ensures the image covers the space without distortion */
+         width: 100%; /* Makes the image responsive */
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Makes sure all cards take full height */
+        }
+        
+        .card-header {
+            font-weight: bold; /* Optional styling for header */
+        }
+        
+        .card-body {
+            flex-grow: 1; /* Allows the body to grow and take up remaining space */
+            display: flex;
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+        }
+        
+        .card-img-top {
+            max-height: 150px; /* Sets a maximum height for images */
+            object-fit: cover; /* Ensures the image covers the space without distortion */
+            width: 100%; /* Makes the image responsive */
+        }
+        
