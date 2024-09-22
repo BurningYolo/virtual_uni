@@ -1,61 +1,71 @@
 <?php
 // profile_handler.php
+if($_GET['action'] ?? "" == "update") {
+    // Collect form data
+    $user_id = $_POST['user_id'];
+    $username = $_POST['username'];
+    $first_name = isset($_POST['first_name']) ? $_POST['first_name'] : null;
+    $last_name = isset($_POST['last_name']) ? $_POST['last_name'] : null;
+    $role = isset($_POST['role']) ? $_POST['role'] : null;
+    $bio = isset($_POST['bio']) ? $_POST['bio'] : null; 
 
+    // Handle profile picture if uploaded
+    $profile_picture = null;
+    if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] == UPLOAD_ERR_OK) {
+        $upload_dir = '../profile/'; // Path for uploads
+        $profile_picture_name = time() . '_' . basename($_FILES['profile_picture']['name']);
+        $profile_picture_path = $upload_dir . $profile_picture_name;
 
+        if (move_uploaded_file($_FILES['profile_picture']['tmp_name'], $profile_picture_path)) {
+            $profile_picture = './profile/' . $profile_picture_name;
+        }
+    }
 
-//UPDATE BLOCK 
-$action = $_GET['action'] ?? "" ; 
-    
-if($action == "update")
-{
-    $data = [
-        'first_name' => $_POST['first_name'],
-        'last_name' => $_POST['last_name'],
-        'email' => $_POST['email'],
-        'bio' => $_POST['bio']
+    session_start() ; 
+    $_SESSION['username'] = $username ; 
+
+    // Prepare data for the API request
+    $postData = [
+        'user_id' => $user_id,
+        'username' => $username,
+        'first_name' => $first_name,
+        'last_name' => $last_name,
+        'role' => $role,
+        'bio' => $bio,
+        'profile_picture' => $profile_picture
     ];
 
-    // Set up cURL for the update request
-    $curl = curl_init('http://localhost/virtual_uni/api/users/update/');
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+    // Send the data to the API via cURL
+    $apiUrl = 'http://localhost/virtual_uni/api/users/update.php';
+    $ch = curl_init($apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+    
+    // Execute the request
+    $response = curl_exec($ch);
+    $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
 
-    // Execute the request and handle response
-    $response = curl_exec($curl);
-
-    if ($response === false) {
-        die(json_encode(['success' => false, 'message' => curl_error($curl)]));
+    // Check response status
+    if ($httpcode == 200) {
+        echo $response; // Return the API's response back to the front-end
+    } else {
+        echo json_encode(['message' => 'Failed to connect to the API']);
     }
 
-    curl_close($curl);
-
-    // Handle the API response
-    $result = json_decode($response, true);
-
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        die(json_encode(['success' => false, 'message' => 'Error decoding API response.']));
-    }
-
-    // Return the result to the AJAX request
-    echo json_encode($result);
+    exit; // Stop further execution
 }
+ 
 
 
 
 
-
-//USER INFO GET
-
-
+//FETCHING USER INFO TO DISPLAY 
 // Check if the user is logged in
 if (isset($_SESSION['user_id'])) {
-
     // Define the API endpoint
     $apiUrl = 'http://localhost/virtual_uni/api/users/';
-
-
-
 
     // Initialize cURL
     $curl = curl_init($apiUrl);

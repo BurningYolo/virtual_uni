@@ -26,8 +26,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="?page=posts" class="nav-link text-white">
-                        Posts
+                    <a href="?page=discussion_boards" class="nav-link text-white">
+                        Discussion Boards
                     </a>
                 </li>
                 <li>
@@ -44,7 +44,7 @@
             <hr>
             <div class="dropdown">
                 <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="assets/images/download.jfif" alt="" width="32" height="32" class="rounded-circle me-2">
+                  
                     <strong><?php echo $_SESSION['username'] ;  ?></strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">

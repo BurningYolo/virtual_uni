@@ -301,6 +301,59 @@
         .view_library .view_library-download-btn:hover {
             background-color: #218838;
         }
+
+
+        /* Modal-specific styles */
+.view_profile_modal .modal-content {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.view_profile_modal .modal-header {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.view_profile_modal .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.view_profile_modal .modal-body {
+    padding-top: 0;
+}
+
+.view_profile_modal .form-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.view_profile_modal .form-control {
+    border-radius: 5px;
+}
+
+.view_profile_modal .modal-footer {
+    border-top: none;
+}
+
+.view_profile_modal .feedback-message {
+    display: none;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+/* Success and error message styles */
+.view_profile_modal .feedback-success {
+    color: #28a745;
+}
+
+.view_profile_modal .feedback-error {
+    color: #dc3545;
+}
+
         
         
         
