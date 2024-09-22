@@ -9,6 +9,8 @@
         body {
             background-color: #222; /* Darker background for better contrast */
             color: #fff;
+            background-image: linear-gradient(rgb(2, 2, 2) , rgb(185, 178, 178));
+            
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             justify-content: center;
@@ -22,6 +24,7 @@
             padding: 30px;
             background-color: #333;
             border-radius: 10px;
+            opacity: 90%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.2s ease-in-out;
         }

@@ -2,7 +2,7 @@
     <div class="row mb-4">
         <!-- Events Card -->
         <div class="col-md-3 mb-4">
-            <div class="card view_dashboard info-card" onclick="location.href='events_page.html';">
+            <div class="card view_dashboard info-card" onclick="location.href='?page=events';">
                 <div class="card-header">Events</div>
                 <div class="card-body">
                     Detailed information about upcoming events.
@@ -13,7 +13,7 @@
 
         <!-- Feedback Card -->
         <div class="col-md-3 mb-4">
-            <div class="card view_dashboard info-card" onclick="location.href='feedback_page.html';">
+            <div class="card view_dashboard info-card" onclick="location.href='?page=feedback';">
                 <div class="card-header">Feedback</div>
                 <div class="card-body">
                     See feedback provided by users.
@@ -24,7 +24,7 @@
 
         <!-- Discussion Boards Card -->
         <div class="col-md-3 mb-4">
-            <div class="card view_dashboard info-card" onclick="location.href='discussion_boards_page.html';">
+            <div class="card view_dashboard info-card" onclick="location.href='?page=posts';">
                 <div class="card-header">Discussion Boards</div>
                 <div class="card-body">
                     Engage in discussions with fellow students and teachers.
@@ -37,7 +37,7 @@
     <div class="row mb-4">
         <!-- Information Kiosks Card -->
         <div class="col-md-3 mb-4">
-            <div class="card view_dashboard info-card" onclick="location.href='kiosks_page.html';">
+            <div class="card view_dashboard info-card" onclick="location.href='?page=information_kiosks';">
                 <div class="card-header">Information Kiosks</div>
                 <div class="card-body">
                     Access information from our kiosks around the campus.
@@ -48,7 +48,7 @@
 
         <!-- Library Card -->
         <div class="col-md-3 mb-4">
-            <div class="card view_dashboard info-card" onclick="location.href='library_page.html';">
+            <div class="card view_dashboard info-card" onclick="location.href='?page=library';">
                 <div class="card-header">Library</div>
                 <div class="card-body">
                     Explore the digital library for resources.
@@ -61,7 +61,7 @@
     <div class="row mb-3 justify-content-center">
         <!-- Profile Card (centered in its own row) -->
         <div class="col-md-4">
-            <div class="card view_dashboard profile-card" onclick="location.href='profile_page.html';">
+            <div class="card view_dashboard profile-card" onclick="location.href='?page=profile';">
                 <div class="card-header bg-success">Profile</div>
                 <div class="card-body">
                     View and edit your personal profile information.
