@@ -7,7 +7,7 @@
                 <div class="card-body">
                     Detailed information about upcoming events.
                 </div>
-                <img src="assets/images/events.jfif" class="card-img-top" alt="Events  Image">
+                <img src="assets/images/events.jpg" class="card-img-top" alt="Events  Image">
             </div>
         </div>
 
@@ -18,18 +18,18 @@
                 <div class="card-body">
                     See feedback provided by users.
                 </div>
-                <img src="assets/images/feedback.png" class="card-img-top" alt="Feedback Image">
+                <img src="assets/images/feedback.jpg" class="card-img-top" alt="Feedback Image">
             </div>
-        </div>
+        </div> 
 
         <!-- Discussion Boards Card -->
         <div class="col-md-3 mb-4">
-            <div class="card view_dashboard info-card" onclick="location.href='?page=posts';">
+            <div class="card view_dashboard info-card" onclick="location.href='?page=discussion_boards';">
                 <div class="card-header">Discussion Boards</div>
                 <div class="card-body">
                     Engage in discussions with fellow students and teachers.
                 </div>
-                <img src="assets/images/discussion.jfif" class="card-img-top" alt="Discussion Boards Image">
+                <img src="assets/images/discussions.png" class="card-img-top" alt="Discussion Boards Image">
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 <div class="card-body">
                     Access information from our kiosks around the campus.
                 </div>
-                <img src="assets/images/information.jfif" class="card-img-top" alt="Information Kiosks Image">
+                <img src="assets/images/information.png" class="card-img-top" alt="Information Kiosks Image">
             </div>
         </div>
 
@@ -53,7 +53,7 @@
                 <div class="card-body">
                     Explore the digital library for resources.
                 </div>
-                <img src="assets/images/library.jfif" class="card-img-top" alt="Library Image">
+                <img src="assets/images/library.png" class="card-img-top" alt="Library Image">
         </div>
     </div>
 
@@ -65,7 +65,7 @@
                 <div class="card-body">
                     View and edit your personal profile information.
                 </div>
-                <img src="assets/images/profile.jpg" class="card-img-top" alt="Profile Image">
+                <img src="assets/images/profile.png" class="card-img-top" alt="Profile Image">
             </div>
         </div>
     </div>

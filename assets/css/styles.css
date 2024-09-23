@@ -354,6 +354,67 @@
     color: #dc3545;
 }
 
+/* Bubble wrapper for each post */
+.view_posts-bubble {
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Bubble arrow to create the 'text bubble' effect */
+.view_posts-bubble::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: -20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #f0f0f0 transparent transparent;
+}
+
+/* Styling for the header section (user profile and name) */
+.view_posts-bubble-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Profile picture */
+.view_posts-profile-picture {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Username and post time */
+.view_posts-username {
+    font-size: 1rem;
+}
+
+.view_posts-time {
+    font-size: 0.85rem;
+}
+
+/* Post content area */
+.view_posts-bubble-content {
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px 15px;
+    border: 1px solid #e0e0e0;
+    word-wrap: break-word;
+}
+
+/* Post text inside the bubble */
+.view_posts-text {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
         
         
         

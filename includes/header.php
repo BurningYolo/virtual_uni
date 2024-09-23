@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-bg bg-dark">
-        <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div class="container d-flex justify-content-between align-items-center">
             <!-- Navbar brand centered -->
         
             
