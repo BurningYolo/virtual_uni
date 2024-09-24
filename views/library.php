@@ -1,7 +1,19 @@
+<?php
+if (!defined('APP_RUNNING')) {
+    die('Access denied'); // Stop execution if accessed directly
+}
+
+// Your existing code goes here...
+?>
+
 <div class="container-fluid p-4 main-content" id="mainContent">
     <h1>Library Resources</h1>
-
-    <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addResourceModal">Add Resource</button>
+    <?php if ($_SESSION['role'] == "teacher"): ?>
+        <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addResourceModal">Add Library Resource</button>
+       
+    </button>
+    <?php endif; ?>
+    
 
     <table id="libraryTable" class="display table" style="width:100%">
         <thead>
@@ -50,6 +62,8 @@
     </table>
 </div>
 
+
+<?php if ($_SESSION['role'] == "teacher"): ?>
 <div class="modal fade" id="addResourceModal" tabindex="-1" aria-labelledby="addResourceModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -93,7 +107,7 @@
         </div>
     </div>
 </div>
-
+<?php endif; ?>
 
 <script>
 

@@ -1,4 +1,12 @@
 <?php
+if (!defined('APP_RUNNING')) {
+    die('Access denied'); // Stop execution if accessed directly
+}
+
+// Your existing code goes here...
+?>
+
+<?php
 if (!isset($events) || empty($events)) {
     die('No discussion boards available.');
 }

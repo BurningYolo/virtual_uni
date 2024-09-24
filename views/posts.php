@@ -1,3 +1,12 @@
+<?php
+if (!defined('APP_RUNNING')) {
+    die('Access denied'); // Stop execution if accessed directly
+}
+
+// Your existing code goes here...
+?>
+
+
 <div class="container-fluid p-4 main-content" id="mainContent">
     <h2 class="mb-4">Discussion Board Posts</h2>
     <button type="button" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#postModal">
@@ -81,7 +90,7 @@
                 if (response.message === "Post created successfully.") {
                     
                     setTimeout(() => {
-                        locashowFeedback('Post created successfully!', 'success');
+                        showFeedback('Post created successfully!', 'success');
                         location.reload(); // Refresh the page after 1 second to show the new post
                     }, 1000);
                 } else {

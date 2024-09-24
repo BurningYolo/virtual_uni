@@ -1,3 +1,12 @@
+<?php
+if (!defined('APP_RUNNING')) {
+    die('Access denied'); // Stop execution if accessed directly
+}
+
+// Your existing code goes here...
+?>
+
+
 <div class="container-fluid p-4 main-content" id="mainContent">
     <h1 class="text-center mb-4 view_feedback-title">Feedback for Virtual Uni</h1>
     

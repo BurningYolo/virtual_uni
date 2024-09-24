@@ -1,10 +1,23 @@
+<?php
+if (!defined('APP_RUNNING')) {
+    die('Access denied'); // Stop execution if accessed directly
+}
+
+// Your existing code goes here...
+?>
+
+
 <div class="container-fluid p-4 main-content" id="mainContent">
     <h1>Events</h1>
     
+
+    
+
+    <?php if ($_SESSION['role'] == "teacher"): ?>
     <button type="button" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#eventModal">
         Create New Event
     </button>
-    
+    <?php endif; ?>
     <div class="row">
         <?php if (!empty($events)): ?>
             <?php foreach ($events as $event): ?>
@@ -33,6 +46,7 @@
     </div>
 </div>
 
+<?php if ($_SESSION['role'] == "teacher"): ?>
 <!-- Modal for creating an event -->
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -75,7 +89,7 @@
         </div>
     </div>
 </div>
-
+<?php endif; ?>
 <script>
     document.getElementById('submitEvent').addEventListener('click', function() {
         const eventName = document.getElementById('eventName').value;

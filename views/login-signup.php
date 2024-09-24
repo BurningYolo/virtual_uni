@@ -1,3 +1,11 @@
+<?php
+if (!defined('APP_RUNNING')) {
+    die('Access denied'); // Stop execution if accessed directly
+}
+
+// Your existing code goes here...
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -177,42 +185,68 @@
         }
 
         function submitForm(formId) {
-            const form = document.getElementById(formId);
-            const formData = new FormData(form);
+    const form = document.getElementById(formId);
+    const formData = new FormData(form);
 
-            fetch('./handlers/login-signup_handler.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                const feedback = document.getElementById('feedback');
-                if (data.success) {
-                    feedback.className = 'alert alert-success';
-                    feedback.innerHTML = data.message;
-
-                    // If signup was successful, show success and switch forms
-                    if (data.action === 'signup') {
-                        feedback.innerHTML = 'Account created successfully.';
-                    }
-
-                    // If login was successful, reload the page (check session and redirect)
-                    if (data.action === 'login') {
-                        window.location.reload();
-                    }
-                } else {
-                    feedback.className = 'alert alert-danger';
-                    feedback.innerHTML = data.message;
-                }
-                feedback.style.display = 'block';
-            })
-            .catch(error => {
-                const feedback = document.getElementById('feedback');
-                feedback.className = 'alert alert-danger';
-                feedback.innerHTML = 'An error occurred. Please try again.';
-                feedback.style.display = 'block';
-            });
+    // Check if required fields are filled
+    const emptyFields = [];
+    form.querySelectorAll('input, select').forEach(field => {
+        if (field.hasAttribute('required') && !field.value.trim()) {
+            emptyFields.push(field);
         }
+    });
+
+    // If there are any empty fields, display an error and stop the submission
+    if (emptyFields.length > 0) {
+        const feedback = document.getElementById('feedback');
+        feedback.className = 'alert alert-danger';
+        feedback.innerHTML = 'Please fill out all required fields.';
+        feedback.style.display = 'block';
+        return; // Stop form submission if validation fails
+    }
+
+    // Proceed with form submission if validation passes
+    fetch('./handlers/login-signup_handler.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        const feedback = document.getElementById('feedback');
+        if (data.success) {
+            feedback.className = 'alert alert-success';
+            feedback.innerHTML = data.message;
+
+            // If signup was successful, show success and switch forms
+            if (data.action === 'signup') {
+                feedback.innerHTML = 'Account created successfully.';
+            }
+
+            // If login was successful, display logging in message and delay the reload
+            if (data.action === 'login') {
+                feedback.innerHTML = 'Logging in...';
+                feedback.style.display = 'block';
+
+                // Add a 1-second delay before reloading the page
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000); // 1000ms = 1 second
+            }
+        } else {
+            feedback.className = 'alert alert-danger';
+            feedback.innerHTML = data.message;
+        }
+        feedback.style.display = 'block';
+    })
+    .catch(error => {
+        const feedback = document.getElementById('feedback');
+        feedback.className = 'alert alert-danger';
+        feedback.innerHTML = 'An error occurred. Please try again.';
+        feedback.style.display = 'block';
+    });
+}
+
+
     </script>
 </body>
 </html>

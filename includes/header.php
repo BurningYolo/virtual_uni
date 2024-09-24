@@ -8,12 +8,6 @@
     <?php include ('libraries_top.php')?>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-bg bg-dark">
-        <div class="container d-flex justify-content-between align-items-center">
-            <!-- Navbar brand centered -->
-        
-            
-            <!-- Sidebar toggler on the right -->
-            <button class="btn btn-dark sidebar-toggler" id="toggleSidebar">☰</button>
-        </div>
-    </nav>
+<nav class="navbar navbar-expand-lg navbar-bg bg-dark" style="width: 125%;">
+<button class="btn btn-dark sidebar-toggler" style="position: fixed; top: 0; right: 0; width: 40px; height: 40px ; margin-right:20px ;  margin-top:20px" id="toggleSidebar">☰</button>
+</nav>

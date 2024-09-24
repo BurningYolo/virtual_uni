@@ -4,7 +4,7 @@ session_start();
 // Include necessary configuration files
 include_once('config/db_config.php');
 include('config/directroy.php'); 
-
+define('APP_RUNNING', true);
 
 // Check if the user is logged in
 if (isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['user_id'] ) ) {

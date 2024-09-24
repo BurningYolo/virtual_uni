@@ -36,7 +36,7 @@ if (isset($_POST['user_id'])) {
         $params[':last_name'] = $_POST['last_name'];
     }
     
-    if (isset($_POST['role'])) {
+    if (isset($_POST['role']) && $_POST['role'] != "") {
         $updates[] = "role = :role";
         $params[':role'] = $_POST['role'];
     }
