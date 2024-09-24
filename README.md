@@ -1,7 +1,9 @@
 
 ```
 virtual_uni
+├─ .htaccess
 ├─ api
+│  ├─ .htaccess
 │  ├─ discussion_boards
 │  │  ├─ create.php
 │  │  ├─ delete.php
@@ -67,17 +69,17 @@ virtual_uni
 │  └─ js
 │     └─ script.js
 ├─ books
-│  ├─ a.pdf
-│  ├─ b.pdf
+│  ├─ .htaccess
 │  ├─ paper-1._1727127939.pdf
 │  ├─ paper-1._1727135352.pdf
-│  ├─ something.pdf
-│  └─ Thesis_Proposal_1._1727127047.pdf
+│  └─ something.pdf
 ├─ config
+│  ├─ .htaccess
 │  ├─ connection.php
 │  ├─ db_config.php
 │  └─ directroy.php
 ├─ handlers
+│  ├─ .htaccess
 │  ├─ dashboard_handler.php
 │  ├─ discussion_boards_handler.php
 │  ├─ events_handler.php
@@ -89,6 +91,7 @@ virtual_uni
 │  ├─ posts_handler.php
 │  └─ profile_handler.php
 ├─ includes
+│  ├─ .htaccess
 │  ├─ footer.php
 │  ├─ header.php
 │  ├─ libraries_bottom.php
@@ -97,6 +100,7 @@ virtual_uni
 │  └─ sidebar.php
 ├─ index.php
 ├─ profile
+│  ├─ .htaccess
 │  ├─ 1727007834_go.png
 │  ├─ 1727008413_Zero Two Chibi Sticker by cherrygloss.jpg
 │  ├─ 1727010127_go.png
@@ -105,6 +109,7 @@ virtual_uni
 │  ├─ 1727010884_Zero Two Chibi Sticker by cherrygloss.jpg
 │  └─ 1727135475_go.png
 └─ views
+   ├─ .htaccess
    ├─ dashboard.php
    ├─ discussion_boards.php
    ├─ events.php
