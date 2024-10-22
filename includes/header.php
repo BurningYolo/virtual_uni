@@ -8,6 +8,6 @@
     <?php include ('libraries_top.php')?>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-bg bg-dark" style="width: 125%;">
+<nav class="navbar navbar-expand-lg " style="width: 125%; background:transparent" >
 <button class="btn btn-dark sidebar-toggler" style="position: fixed; top: 0; right: 0; width: 40px; height: 40px ; margin-right:20px ;  margin-top:20px" id="toggleSidebar">☰</button>
 </nav>

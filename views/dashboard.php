@@ -66,6 +66,17 @@ if (!defined('APP_RUNNING')) {
         </div>
     </div>
 
+    <?php if ($_SESSION['role'] == "teacher"): ?>
+    <div class="col-md-3 mb-4">
+            <div class="card view_dashboard info-card" onclick="location.href='?page=classroom';">
+                <div class="card-header">ClassRoom</div>
+                <div class="card-body">
+                    Explore and Join Different Classrooms 
+                </div>
+                <img src="assets/images/google-classroom.svg" class="card-img-top" alt="ClassRoom Image">
+        </div>
+    </div>
+    <?php endif; ?>
     <div class="row mb-3 justify-content-center">
         <!-- Profile Card (centered in its own row) -->
         <div class="col-md-4">

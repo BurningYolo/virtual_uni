@@ -20,7 +20,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['role']) && isset($_SESSION['us
     }
 
     // Validate the view name to prevent unauthorized access
-    $valid_views = ['dashboard', 'library', 'profile', 'feedback', 'posts', 'events', 'information_kiosks' , 'discussion_boards'];
+    $valid_views = ['dashboard', 'library', 'profile', 'feedback', 'posts', 'events', 'information_kiosks' , 'discussion_boards' , 'classroom'];
 
     if (!in_array($view, $valid_views)) {
         $view = 'dashboard';

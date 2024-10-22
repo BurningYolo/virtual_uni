@@ -72,9 +72,64 @@ if (!defined('APP_RUNNING')) {
         </div>
 
         <div class="text-center mt-4">
-            <button type="submit" class="btn btn-primary view_feedback-submit">WORKING ON BACKEND FOR THIS</button>
+            <button type="submit" class="btn btn-primary view_feedback-submit">Submit Feedback</button>
         </div>
     </form>
 </div>
+<script>
+document.getElementById('feedbackForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
+    // Initialize variables to hold the concatenated questions and ratings
+    let questions = '';
+    let ratings = '';
 
+    // Collect the questions and star ratings
+    document.querySelectorAll('.view_feedback-star-rating').forEach(function(starRating) {
+        const questionLabel = starRating.previousElementSibling.textContent.trim(); // Get the question text
+        const selectedStar = starRating.querySelector('.view_feedback-star.selected');
+        const ratingValue = selectedStar ? selectedStar.getAttribute('data-value') : 0;  // Default to 0 if no star is selected
+        
+        // Append the question and rating to the strings
+        questions += questionLabel + '; ';
+        ratings += ratingValue + '; ';
+    });
+
+    // Collect comments
+    const comments = document.getElementById('comments').value;
+
+    // Debug: log questions and ratings before sending
+    console.log('feedback_text: ' + questions);
+    console.log('Ratings: ' + ratings);
+    console.log('Comments: ' + comments);
+
+    // Create FormData to send the request
+    let formData = new FormData();
+    formData.append('user_id', <?php echo $_SESSION['user_id']; ?>); // Add dynamic user_id
+    formData.append('feedback_text', questions); // Append all questions as one string
+    formData.append('ratings', ratings);     // Append all ratings as one string
+    // Send the feedback data to the server via AJAX
+    fetch('./handlers/feedback_handler.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Feedback submitted successfully!');
+        } else {
+            alert(data.message || 'Error submitting feedback.');
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+// Handle star selection
+document.querySelectorAll('.view_feedback-star').forEach(function(star) {
+    star.addEventListener('click', function() {
+        const stars = this.parentNode.querySelectorAll('.view_feedback-star');
+        stars.forEach(star => star.classList.remove('selected')); // Remove 'selected' from all stars in this group
+        this.classList.add('selected'); // Add 'selected' to the clicked star
+    });
+});
+</script>
