@@ -13,7 +13,7 @@ if (!defined('APP_RUNNING')) {
 
     
 
-    <?php if ($_SESSION['role'] == "teacher"): ?>
+    <?php if ($_SESSION['role'] == "teacher" || $_SESSION['role'] == "university"): ?>
     <button type="button" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#eventModal">
         Create New Event
     </button>
@@ -46,7 +46,7 @@ if (!defined('APP_RUNNING')) {
     </div>
 </div>
 
-<?php if ($_SESSION['role'] == "teacher"): ?>
+<?php if ($_SESSION['role'] == "teacher" || $_SESSION['role'] == "university"): ?>
 <!-- Modal for creating an event -->
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

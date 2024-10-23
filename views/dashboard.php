@@ -8,6 +8,21 @@ if (!defined('APP_RUNNING')) {
 
 
 <div class="container-fluid p-4 main-content" id="mainContent">
+
+<?php if ($_SESSION['role'] == "teacher" || $_SESSION['role'] == "university"): ?>
+<div class="row mb-3 ">
+        <!-- Profile Card (centered in its own row) -->
+        <div class="col-md-4">
+            <div class="card view_dashboard profile-card" onclick="location.href='?page=access_key';">
+                <div class="card-header bg-success">Access Keys</div>
+                <div class="card-body">
+                    Generate access keys for students & teachers.
+                </div>
+                <img src="assets/images/profile.png" class="card-img-top" alt="Profile Image">
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
     <div class="row mb-4">
         <!-- Events Card -->
         <div class="col-md-3 mb-4">
@@ -66,7 +81,7 @@ if (!defined('APP_RUNNING')) {
         </div>
     </div>
 
-    <?php if ($_SESSION['role'] == "teacher"): ?>
+    <?php if ($_SESSION['role'] == "teacher" || $_SESSION['role'] == "university"): ?>
     <div class="col-md-3 mb-4">
             <div class="card view_dashboard info-card" onclick="location.href='?page=classroom';">
                 <div class="card-header">ClassRoom</div>
@@ -77,6 +92,21 @@ if (!defined('APP_RUNNING')) {
         </div>
     </div>
     <?php endif; ?>
+
+    <div class="row mb-4">
+        <!-- Events Card -->
+        <div class="col-md-3 mb-4">
+            <div class="card view_dashboard info-card" onclick="location.href='?page=events';">
+                <div class="card-header">Events</div>
+                <div class="card-body">
+                    Detailed information about upcoming events.
+                </div>
+                <img src="assets/images/events.jpg" class="card-img-top" alt="Events  Image">
+            </div>
+        </div>
+    </div>
+
+    
     <div class="row mb-3 justify-content-center">
         <!-- Profile Card (centered in its own row) -->
         <div class="col-md-4">

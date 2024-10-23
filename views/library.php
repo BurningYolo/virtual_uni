@@ -8,7 +8,7 @@ if (!defined('APP_RUNNING')) {
 
 <div class="container-fluid p-4 main-content" id="mainContent">
     <h1>Library Resources</h1>
-    <?php if ($_SESSION['role'] == "teacher"): ?>
+    <?php if ($_SESSION['role'] == "teacher" || $_SESSION['role'] == "university"): ?>
         <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#addResourceModal">Add Library Resource</button>
        
     </button>
@@ -63,7 +63,7 @@ if (!defined('APP_RUNNING')) {
 </div>
 
 
-<?php if ($_SESSION['role'] == "teacher"): ?>
+<?php if ($_SESSION['role'] == "teacher" || $_SESSION['role'] == "university"): ?>
 <div class="modal fade" id="addResourceModal" tabindex="-1" aria-labelledby="addResourceModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

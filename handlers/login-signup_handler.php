@@ -24,11 +24,15 @@ function handleSignup() {
     // Send the POST request to the signup API
     $response = makeApiRequest($url);
 
-    // Process the response from the signup API
-    if ($response['message'] === 'User created successfully.') {
-        echo json_encode(['success' => true, 'message' => 'Account created successfully.', 'action' => 'signup']);
+    // Check if the response is valid and contains a message
+    if (isset($response['message'])) {
+        if ($response['message'] === 'User created successfully.') {
+            echo json_encode(['success' => true, 'message' => 'Account created successfully.', 'action' => 'signup']);
+        } else {
+            echo json_encode(['success' => false, 'message' => $response['message']]);
+        }
     } else {
-        echo json_encode(['success' => false, 'message' => $response['message']]);
+        echo json_encode(['success' => false, 'message' => 'Unexpected response from server.']);
     }
 }
 
@@ -38,42 +42,42 @@ function handleLogin() {
     // Send the POST request to the login API
     $response = makeApiRequest($url);
 
-    // Process the response from the login API
-    if ($response['message'] === 'Login successful.') {
-        // Check if user details are present in the response
-        if (isset($response['user_details'])) {
-            // Set session variables
-            session_start();
-            $_SESSION['email'] = $response['user_details']['email'];
-            $_SESSION['role'] = $response['user_details']['role'];
-            $_SESSION['user_id'] = $response['user_details']['user_id'];
-            $_SESSION['username'] = $response['user_details']['username'];
+    // Check if the response is valid and contains a message
+    if (isset($response['message'])) {
+        if ($response['message'] === 'Login successful.') {
+            // Check if user details are present in the response
+            if (isset($response['user_details'])) {
+                // Set session variables
+                session_start();
+                $_SESSION['email'] = $response['user_details']['email'];
+                $_SESSION['role'] = $response['user_details']['role'];
+                $_SESSION['user_id'] = $response['user_details']['user_id'];
+                $_SESSION['username'] = $response['user_details']['username'];
 
-            
-            
-
-            // Send a successful response with additional login action
-            echo json_encode([
-                'success' => true, 
-                'message' => 'Login successful.', 
-                'action' => 'login'
-            ]);
+                // Send a successful response with additional login action
+                echo json_encode([
+                    'success' => true, 
+                    'message' => 'Login successful.', 
+                    'action' => 'login'
+                ]);
+            } else {
+                // If user details are missing, handle it as an error
+                echo json_encode([
+                    'success' => false, 
+                    'message' => 'User details not found in response.'
+                ]);
+            }
         } else {
-            // If user details are missing, handle it as an error
+            // Send an error response if login fails
             echo json_encode([
                 'success' => false, 
-                'message' => 'Something went wrong.'
+                'message' => $response['message']
             ]);
         }
     } else {
-        // Send an error response if login fails
-        echo json_encode([
-            'success' => false, 
-            'message' => $response['message']
-        ]);
+        echo json_encode(['success' => false, 'message' => 'Unexpected response from server.']);
     }
 }
-
 function makeApiRequest($url) {
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -87,5 +91,12 @@ function makeApiRequest($url) {
     }
 
     curl_close($ch);
-    return json_decode($response, true);
+    //print_r($response); 
+
+    $decodedResponse = json_decode($response, true);
+
+    // Ensure the response is valid JSON
+
+
+    return $decodedResponse;
 }

@@ -43,6 +43,45 @@ if (isset($_POST['classroom_name'], $_POST['description'], $_POST['subject'])) {
         exit; 
     }
 }
+
+
+if (isset($_POST['delete_classroom_id'])) {
+    $classroom_id = $_POST['delete_classroom_id'];
+
+    // API endpoint URL with classroom_id as a query parameter
+    $apiUrl = 'http://localhost/virtual_uni/api/virtual_classrooms/delete.php?classroom_id=' . urlencode($classroom_id);
+
+    // Initialize cURL
+    $ch = curl_init($apiUrl);
+
+    // Set options for GET request
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET'); // Make sure it's a GET request
+
+    // Execute the request
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    
+    // Close cURL
+    curl_close($ch);
+
+    // Handle response
+    if ($httpCode === 200) {
+        // Assuming the API returns a JSON response
+        $responseData = json_decode($response, true);
+        echo json_encode(['message' => $responseData['message'] ?? 'Virtual classroom deleted successfully.']);
+        exit; 
+    } else {
+        echo json_encode(['message' => 'Failed to delete classroom.']);
+        exit; 
+    }
+}
+
+
+
+
+
+
 ?>
 
 <?php
